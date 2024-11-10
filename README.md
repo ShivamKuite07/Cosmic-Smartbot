@@ -3,7 +3,11 @@
 COSMIC is a chatbot web app built with Django and integrated with the Gemini API for AI-generated responses. 
 Featuring light and dark mode options, COSMIC is an interactive experiment to explore LLM API integration for conversational apps.
 
-[gemini_bot](https://github.com/ShivamKuite07/Cosmic-Smartbot/blob/main/geminichatbot-ezgif.com-speed.gif)
+<div align="center">
+  
+![](https://github.com/ShivamKuite07/Cosmic-Smartbot/blob/main/geminichatbot-ezgif.com-speed.gif)
+
+</div>
 
 ## Features
 - **Free to Use**: Access the core functionality without any cost.
