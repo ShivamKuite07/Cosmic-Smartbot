@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #chat-box {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .message.user {
+            color: blue;
+        }
+        .message.bot {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Chat with Gemini AI</h1>
+    <div id="chat-box"></div>
+    
+    <input type="text" id="user-input" placeholder="Type your message here" style="width: 80%;">
+    <button id="send-btn">Send</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#send-btn').click(function() {
+                let message = $('#user-input').val();
+                if (message.trim() !== "") {
+                    // Append user message to chat box
+                    $('#chat-box').append('<div class="message user">You: ' + message + '</div>');
+                    
+                    // Send the message to the chatbot API
+                    $.ajax({
+                        url: '/chatbot/chat/',
+                        data: { message: message },
+                        success: function(response) {
+                            // Append the bot's response to the chat box
+                            $('#chat-box').append('<div class="message bot">Bot: ' + response.response + '</div>');
+                            
+                            // Clear the input box and scroll chat box to the bottom
+                            $('#user-input').val('');
+                            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                        }
+                    });
+                }
+            });
+
+            // Send message when pressing Enter
+            $('#user-input').keypress(function(e) {
+                if (e.which == 13) { // Enter key pressed
+                    $('#send-btn').click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

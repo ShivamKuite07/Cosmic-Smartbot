@@ -1,0 +1,10 @@
+gemini_env\Scripts\activate
+
+cd gemini_chatbot
+
+python manage.py runserver
+
+http://127.0.0.1:8000/chatbot/
+
+
+deactivate
