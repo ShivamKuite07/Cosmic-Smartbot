@@ -1,6 +1,4 @@
-Here's a modified and polished version of your README for GitHub:
 
----
 
 # 🌌 COSMIC - Django Chatbot Powered by Gemini API 🤖  
 
